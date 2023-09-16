@@ -28,6 +28,7 @@ public interface MyArrayBagInterface <T>{
     public MyArrayBag<T> union(MyArrayBag<T> otherBag);
 
     //Extra Methods--------------------------------------------------------
+    public boolean equals(Object anEntry);
     public boolean contains(T anEntry);
     public int getMaxSize(); //Gets the max size of bag
     public T[] toArray(); // Returns the array of the bag

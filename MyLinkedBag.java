@@ -104,6 +104,9 @@ public class MyLinkedBag implements MyArrayBagInterface{
     public Object[] Count() {
         throw new UnsupportedOperationException("Unimplemented method 'Count'");
     }
+    public void PrintBag() {
+        
+    }
 
     
 

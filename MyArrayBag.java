@@ -150,6 +150,11 @@ public class MyArrayBag <T> implements MyArrayBagInterface <T> {
         return letters.toArray();
     }
 
+    public void PrintBag() {
+        for (int i = 0; i < bag.length; i++) {
+        }
+    }
+
     
     
 }
