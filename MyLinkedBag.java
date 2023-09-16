@@ -1,33 +1,46 @@
-public class MyLinkedBag implements MyArrayBagInterface{
-
+public class MyLinkedBag <T> implements MyArrayBagInterface <T> {
+       /* File: MyLinkedBag.java
+ * By: Daniel Smirnoff
+ * Date: 9/15/2023
+ * Compile:
+ * Usage: 
+ * System: I think every system
+ * Description: Basic LinkedBag class
+ */
     private int numNodes = 0;
-    public Node firstNode;
+    public Node<T> firstNode;
 
-    public MyLinkedBag() {
+    /*******************************************************************************************************/
+    public MyLinkedBag() { //Constructor
         firstNode = null;
         numNodes = 0;
     }
+    /*******************************************************************************************************/
 
 
     //Interface Methods------------------------------------------------------------------------------
-    public int getCurrentSize() {
+    /*******************************************************************************************************/
+    public int getCurrentSize() { //Gets length of list
         return numNodes;
     }
 
-    public boolean isFull() {
-        throw new UnsupportedOperationException("Unimplemented method 'isFull'");
+    /*******************************************************************************************************/
+    public boolean isFull() { //Always empty
+        return false;
     }
+    /*******************************************************************************************************/
 
-    public boolean isEmpty() {
+    public boolean isEmpty() { //checks if list is empty
         if(numNodes == 0) {
             return true;
         } else {
             return false;
         }
     }
+    /*******************************************************************************************************/
 
-    public boolean add(Object newEntry) {
-        Node newNode = new Node(newEntry);
+    public boolean add(T newEntry) { //Adds a new node
+        Node<T> newNode = new Node<T>(newEntry);
         if(isEmpty()) {
             firstNode = newNode;
         } else {
@@ -37,52 +50,57 @@ public class MyLinkedBag implements MyArrayBagInterface{
         numNodes++;
         return true;
     }
+    /*******************************************************************************************************/
 
-    public Object remove() {
-        Object toRemove;
+    public T remove() { //Removes the first node
+        Node<T> toRemove;
         toRemove = firstNode;
         firstNode = firstNode.next;
-        return firstNode;
+        return toRemove.data;
     }
-
-    public boolean remove(Object anEntry) { //FIX
-        Node currentNode = firstNode;
-        while(currentNode.next != null) {
-            if(currentNode.data == anEntry) {
-                return true;
+    /*******************************************************************************************************/
+    public boolean remove(T anEntry) { //Removes a specific Entry
+        boolean found = false;
+        Node<T> currentNode = firstNode;
+        while(!found && currentNode.next != null) {
+            if(currentNode.data.equals(anEntry)) {
+                found = true;
+                currentNode.data = firstNode.data;
+                firstNode = firstNode.next;
             } else {
                 currentNode = currentNode.next;
             }
         }
-        return false;
+        return found;
     }
-
+    /*******************************************************************************************************/
     public int findAndRemove(Object anEntry) {
         throw new UnsupportedOperationException("Unimplemented method 'findAndRemove'");
     }
-
-    public MyArrayBag union(MyArrayBag otherBag) {
+    /*******************************************************************************************************/
+    public MyArrayBag union(MyArrayBag otherBag) { //Not applied
         throw new UnsupportedOperationException("Unimplemented method 'union'");
     }
-
-    public boolean contains(Object anEntry) { //FIX
-        Node currentNode = firstNode;
-        while(currentNode.next != null) {
-            if(currentNode.data == anEntry) {
-                return true;
+    /*******************************************************************************************************/
+    public boolean contains(T anEntry) { //Check if tree contains node data
+        boolean found = false;
+        Node<T> currentNode = firstNode;
+        while(!found && currentNode.next != null) {
+            if(anEntry.equals(currentNode.data)) {
+                found = true;
             } else {
                 currentNode = currentNode.next;
             }
         }
-        return false;
+        return found;
     }
-
-    public int getMaxSize() {
+    /*******************************************************************************************************/
+    public int getMaxSize() { //Not Applied
         throw new UnsupportedOperationException("Unimplemented method 'getMaxSize'");
     }
-
-    public Object[] toArray() {
-        Node currentNode = firstNode;
+    /*******************************************************************************************************/
+    public T[] toArray() { //Converts to array
+        Node<T> currentNode = firstNode;
         int index = 0;
         Object[] array = new Object[numNodes];
         while(true) {
@@ -90,23 +108,25 @@ public class MyLinkedBag implements MyArrayBagInterface{
             index++;
 
             if(currentNode.next == null) {
-                return array;
+                return (T[])array;
             } else {
                 currentNode = currentNode.next;
             }
         }
     }
-
-    public MyArrayBag GetBag() {
+    /*******************************************************************************************************/
+    public MyArrayBag GetBag() { //Notapplied
         throw new UnsupportedOperationException("Unimplemented method 'GetBag'");
     }
-
-    public Object[] Count() {
+    /*******************************************************************************************************/
+    public Object[] Count() {//Not appplied
         throw new UnsupportedOperationException("Unimplemented method 'Count'");
     }
+    /*******************************************************************************************************/
     public void PrintBag() {
-        
+
     }
+    /*******************************************************************************************************/
 
     
 

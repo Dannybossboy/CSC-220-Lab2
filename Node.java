@@ -1,31 +1,50 @@
-public class Node {
-    public Object data;
-    public Node next;
+public class Node <T> {
+       /* File: Node.java
+ * By: Daniel Smirnoff
+ * Date: 9/15/2023
+ * Compile:
+ * Usage:
+ * System: I think every system
+ * Description: Basic Node class
+ */
+    public T data;
+    public Node<T> next;
 
-    public Node() {
+    /*******************************************************************************************************/
+    public Node() { //No arg Constructor
         data = null;
         next = null;
     }
-    public Node(Object Data) {
+    /*******************************************************************************************************/
+    public Node(T Data) { //1 Arg Constructor
         data = Data;
         next = null;
     }
-    public Node(Object Data, Node Next) {
+    /*******************************************************************************************************/
+    public Node(T Data, Node<T> Next) { //2 Arg Constructor
         data = Data;
         Next = next;
     }
+    /*******************************************************************************************************/
+
     //Getters
-    public Object GetData() {
+    /*******************************************************************************************************/
+    public T GetData() { //gets the data
         return data;
     }
-    public Node GetNext() {
+    /*******************************************************************************************************/
+    public Node<T> GetNext() { //gets the next
         return next;
     }
+    /*******************************************************************************************************/
+
     //Setters
-    public void SetData(Object Data) {
+    /*******************************************************************************************************/
+    public void SetData(T Data) { //sets the data
         data = Data;
     }
-    public void SetNext(Node Next) {
+    public void SetNext(Node<T> Next) { //sets the next
         next = Next;
     }
+    /*******************************************************************************************************/
 }   

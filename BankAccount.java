@@ -1,6 +1,14 @@
 import java.util.Scanner;
 
 public abstract class BankAccount implements Comparable<BankAccount> {
+    /* File: BankAccount.java
+ * By: Daniel Smirnoff
+ * Date: 9/15/2023
+ * Compile:
+ * Usage: Run Main to check class
+ * System: I think every system
+ * Description: Basic BankAccount Class
+ */
     //Class Variables
     public static final String bankName = "Well Fargo Bank";
     private static int currentNumber = 0;
@@ -11,6 +19,7 @@ public abstract class BankAccount implements Comparable<BankAccount> {
     public int balance;
     private String type;
 
+    /*******************************************************************************************************/
     public BankAccount(String accountNum, String createDate) {
         this.accountNum = String.valueOf(this.getCurrentNumber());
         currentNumber++;
@@ -23,57 +32,78 @@ public abstract class BankAccount implements Comparable<BankAccount> {
         this.balance = balance;
         this.type = type;
     }
+    /*******************************************************************************************************/
 
     //Getters----------------
+    /*******************************************************************************************************/
     public String getAccountNum() {
         return accountNum;
     }
+    /*******************************************************************************************************/
     public String getCreateDate() {
         return createDate;
     }
+    /*******************************************************************************************************/
     public int getBalance() {
         return balance;
     }
+    /*******************************************************************************************************/
     public String getType() {
         return type;
     }
-    //Static Getters
+    /*******************************************************************************************************/
+
+    //Static Getters---------------
+    /*******************************************************************************************************/
     public String getBankName() {
         return bankName;
     }
+    /*******************************************************************************************************/
     public int getCurrentNumber() {
         return currentNumber;
     }
+    /*******************************************************************************************************/
+
     //Setters----------------
+    /*******************************************************************************************************/
     public void setAccountNum(String accountNum) {
         this.accountNum = accountNum;
     }
+    /*******************************************************************************************************/
     public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
+    /*******************************************************************************************************/
     public void setBalance(int balance) {
         this.balance = balance;
     }
+    /*******************************************************************************************************/
     public void setType(String type) {
         this.type = type;
     }
+    /*******************************************************************************************************/
     public void setCurrentNumber(int num) {
         currentNumber = num;
     }
+    /*******************************************************************************************************/
+
     //Other Methods----------------------------------
+    /*******************************************************************************************************/
     public int compareTo(BankAccount otherObject) {
         if(accountNum == otherObject.getAccountNum()) return 0;
         if(Integer.valueOf(accountNum) > Integer.valueOf(otherObject.getAccountNum())) return 1;
         return -1;
     }
+    /*******************************************************************************************************/
     public void printAccount() {
         System.out.println("Account Type: " + type);
         System.out.println("Balance: " + balance);
         System.out.println("Account Number: " + accountNum);
         System.out.println("Date Created: " + createDate);
     }
+    /*******************************************************************************************************/
 
-    public static void main(String[] args) {
+    public static void CreateAccount() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to your Bank Account");
         System.out.println("Type 1 to Create a Savings Account");
@@ -97,6 +127,12 @@ public abstract class BankAccount implements Comparable<BankAccount> {
 
             break;
         }
+    }
+
+    public static void main(String[] args) {
+        CreateAccount();
+        CreateAccount();
+        CreateAccount();
     }
 
 }
