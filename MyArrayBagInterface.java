@@ -28,8 +28,8 @@ public interface MyArrayBagInterface <T>{
     public MyArrayBag<T> union(MyArrayBag<T> otherBag);
 
     //Extra Methods--------------------------------------------------------
-    public boolean equals(Object anEntry);
-    public boolean contains(T anEntry);
+    public boolean equals(Object anEntry); //Check if equals another object
+    public boolean contains(T anEntry); //Check if contains object
     public int getMaxSize(); //Gets the max size of bag
     public T[] toArray(); // Returns the array of the bag
     public MyArrayBag<T> GetBag(); //Returns the Bag itself

@@ -7,8 +7,8 @@ public class MyLinkedBag <T> implements MyArrayBagInterface <T> {
  * System: I think every system
  * Description: Basic LinkedBag class
  */
-    private int numNodes = 0;
-    public Node<T> firstNode;
+    private int numNodes = 0; //Total number of nodes
+    public Node<T> firstNode; //First node
 
     /*******************************************************************************************************/
     public MyLinkedBag() { //Constructor

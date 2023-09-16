@@ -7,5 +7,5 @@ public interface Comparable <T> {
  * System: I think every system
  * Description: comparable interface
  */
-    public int compareTo (T otherObject);
+    public int compareTo (T otherObject); //Compares to another object
 }
