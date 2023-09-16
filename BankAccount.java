@@ -1,15 +1,23 @@
-public class BankAccount {
+public abstract class BankAccount {
+    //Instance Variables
     public String accountNum;
     public String createDate;
     public int balance;
     private String type;
 
+    //Class Variables
     public static String bankName;
     private static int currentNumber = 0;
 
     public BankAccount(String accountNum, String createDate) {
         this.accountNum = accountNum;
         this.createDate = createDate;
+    }
+    public BankAccount(String accountNum, String createDate, int balance, String type) {
+        this.accountNum = accountNum;
+        this.createDate = createDate;
+        this.balance = balance;
+        this.type = type;
     }
 
     //Getters----------------
