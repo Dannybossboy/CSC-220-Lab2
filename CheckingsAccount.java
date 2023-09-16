@@ -6,12 +6,10 @@ public class CheckingsAccount extends BankAccount{
     public int balance;
     private String type;
 
-    public CheckingsAccount(String AccountNum, String CreateDate, int Balance, String Type) {
-        super(AccountNum, CreateDate);
-        accountNum = AccountNum;
-        createDate = CreateDate;
+    public CheckingsAccount(int Balance) {
+        accountNum = Integer.toString(super.GetCurrentNumber());
+        createDate = new java.util.Date().toString();
         balance = Balance;
-        type = Type;
-        super.SetCurrentNumber(super.GetCurrentNumber() + 1);
+        type = "Checkings";
     }
 }

@@ -8,21 +8,20 @@ public class Node {
     }
     public Node(Object Data) {
         data = Data;
+        next = null;
     }
     public Node(Object Data, Node Next) {
         data = Data;
         Next = next;
     }
-
-    //Getters-------------------------
+    //Getters
     public Object GetData() {
         return data;
     }
     public Node GetNext() {
         return next;
     }
-
-    //Setters-------------------------
+    //Setters
     public void SetData(Object Data) {
         data = Data;
     }

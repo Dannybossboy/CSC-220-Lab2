@@ -1,19 +1,17 @@
 public class MyLinkedBag implements MyArrayBagInterface{
-    
+
     private int numNodes = 0;
     public Node firstNode;
 
     public MyLinkedBag() {
-    }
-
-    public void Add(BankAccount account) {
-
+        firstNode = null;
+        numNodes = 0;
     }
 
 
     //Interface Methods------------------------------------------------------------------------------
     public int getCurrentSize() {
-        throw new UnsupportedOperationException("Unimplemented method 'getCurrentSize'");
+        return numNodes;
     }
 
     public boolean isFull() {
@@ -21,19 +19,42 @@ public class MyLinkedBag implements MyArrayBagInterface{
     }
 
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        if(numNodes == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean add(Object newEntry) {
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        Node newNode = new Node(newEntry);
+        if(isEmpty()) {
+            firstNode = newNode;
+        } else {
+            newNode.next = firstNode;
+            firstNode = newNode;
+        }
+        numNodes++;
+        return true;
     }
 
     public Object remove() {
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+        Object toRemove;
+        toRemove = firstNode;
+        firstNode = firstNode.next;
+        return firstNode;
     }
 
-    public boolean remove(Object anEntry) {
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+    public boolean remove(Object anEntry) { //FIX
+        Node currentNode = firstNode;
+        while(currentNode.next != null) {
+            if(currentNode.data == anEntry) {
+                return true;
+            } else {
+                currentNode = currentNode.next;
+            }
+        }
+        return false;
     }
 
     public int findAndRemove(Object anEntry) {
@@ -44,8 +65,16 @@ public class MyLinkedBag implements MyArrayBagInterface{
         throw new UnsupportedOperationException("Unimplemented method 'union'");
     }
 
-    public boolean contains(Object anEntry) {
-        throw new UnsupportedOperationException("Unimplemented method 'contains'");
+    public boolean contains(Object anEntry) { //FIX
+        Node currentNode = firstNode;
+        while(currentNode.next != null) {
+            if(currentNode.data == anEntry) {
+                return true;
+            } else {
+                currentNode = currentNode.next;
+            }
+        }
+        return false;
     }
 
     public int getMaxSize() {
@@ -53,7 +82,19 @@ public class MyLinkedBag implements MyArrayBagInterface{
     }
 
     public Object[] toArray() {
-        throw new UnsupportedOperationException("Unimplemented method 'toArray'");
+        Node currentNode = firstNode;
+        int index = 0;
+        Object[] array = new Object[numNodes];
+        while(true) {
+            array[index] = currentNode.data;
+            index++;
+
+            if(currentNode.next == null) {
+                return array;
+            } else {
+                currentNode = currentNode.next;
+            }
+        }
     }
 
     public MyArrayBag GetBag() {

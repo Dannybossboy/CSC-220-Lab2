@@ -73,6 +73,8 @@ public abstract class BankAccount {
             break;
             case 2:
             System.out.println("What should your starting balance be?");
+            i = sc.nextInt();
+            CheckingsAccount checkings = new CheckingsAccount(i);
             break;
         
             default:
